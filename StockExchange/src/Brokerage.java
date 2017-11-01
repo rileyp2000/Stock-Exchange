@@ -71,24 +71,28 @@ public class Brokerage implements Login {
 			return -2;
 
 	}
-	
+
 	/**
-	 * <p>Logs out the Trader</p>
+	 * <p>
+	 * Logs out the Trader
+	 * </p>
 	 * 
-	 * @param t Trader to be removed
+	 * @param t
+	 *            Trader to be removed
 	 *
-	 *void
+	 *            void
 	 */
 	public void logout(Trader t) {
-		loggedInTraders.remove(t);
+		if (loggedInTraders.contains(t))
+			loggedInTraders.remove(t);
 	}
-	
+
 	public void getQuote(String symbol, Trader trader) {
-		//TODO inlude receiveMessage for trader
+		// TODO inlude receiveMessage for trader
 	}
-	
-	placeOrder(TradeOrder order){
-		//TODO
+
+	public void placeOrder(TradeOrder order) {
+		// TODO
 	}
 
 }

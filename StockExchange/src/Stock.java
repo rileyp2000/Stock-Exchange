@@ -12,6 +12,7 @@ import java.util.Queue;
  */
 public class Stock implements Comparable<Stock> {
 	private String symbol, name;
+	private int dayVolume;
 	private double lowPrice, highPrice, lastPrice;
 	private static DecimalFormat money = new DecimalFormat("$#,##0.00");
 	
@@ -24,10 +25,12 @@ public class Stock implements Comparable<Stock> {
 		lowPrice = p;
 		highPrice = p;
 		lastPrice = p;
+		dayVolume = 0;
+		sellOrders = new PriorityQueue
 	}
 	
 	public String getQuote() {
-		return "";
+		return ;
 	}
 	
 	public void placeOrder(TradeOrder order) {

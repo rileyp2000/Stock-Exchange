@@ -28,26 +28,15 @@ public class TradeOrder {
 		return trader;
 	}
 
-	/**
-	 * @param trader the trader to set
-	 */
-	public void setTrader(Trader trader) {
-		this.trader = trader;
-	}
+
 
 	/**
 	 * @return the numShares
 	 */
-	public int getNumShares() {
+	public int getShares() {
 		return numShares;
 	}
 
-	/**
-	 * @param numShares the numShares to set
-	 */
-	public void setNumShares(int numShares) {
-		this.numShares = numShares;
-	}
 
 	/**
 	 * @return the price
@@ -56,12 +45,7 @@ public class TradeOrder {
 		return price;
 	}
 
-	/**
-	 * @param price the price to set
-	 */
-	public void setPrice(double price) {
-		this.price = price;
-	}
+
 
 	/**
 	 * @return the symbol
@@ -70,12 +54,6 @@ public class TradeOrder {
 		return symbol;
 	}
 
-	/**
-	 * @param symbol the symbol to set
-	 */
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
 
 	/**
 	 * @return the buy
@@ -83,14 +61,14 @@ public class TradeOrder {
 	public boolean isBuy() {
 		return buy;
 	}
-
+	
 	/**
-	 * @param buy the buy to set
+	 * @return the buy
 	 */
-	public void setBuy(boolean buy) {
-		this.buy = buy;
+	public boolean isSell() {
+		return !buy;
 	}
-
+	
 	/**
 	 * @return the market
 	 */
@@ -99,10 +77,22 @@ public class TradeOrder {
 	}
 
 	/**
-	 * @param market the market to set
+	 * @return the market
 	 */
-	public void setMarket(boolean market) {
-		this.market = market;
+	public boolean isLimit() {
+		return !market;
+	}
+	
+	/**
+	 * 
+	 * @param shares a number of shares to be subtracted.
+	 *
+	 *void
+	 */
+	public void subtractShares(int shares) {
+		if(shares > numShares)
+			throw new IllegalArgumentException("shares > numShares!!");
+		numShares -= shares;
 	}
 
 	/* (non-Javadoc)
