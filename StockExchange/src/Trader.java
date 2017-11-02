@@ -64,6 +64,14 @@ public class Trader implements Comparable<Trader> {
 	public void getQuote(String symbol) {
 		brokerage.getQuote(symbol, this);
 	}
+	
+	public void quit() {
+		brokerage.logout(this);
+	}
+	
+	public void placeOrder(TradeOrder order) {
+		brokerage.placeOrder(order);
+	}
 
 	@Override
 	public int compareTo(Trader other) {

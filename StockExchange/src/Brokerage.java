@@ -15,8 +15,14 @@ public class Brokerage implements Login {
 
 	private TreeMap<String, Trader> registeredTrader;
 	private TreeSet<Trader> loggedInTraders;
+	private StockExchange exchange;
 
 	public Brokerage() {
+		registeredTrader = new TreeMap<String, Trader>();
+		loggedInTraders = new TreeSet<Trader>();
+	}
+	
+	public Brokerage(StockExchange e) {
 		registeredTrader = new TreeMap<String, Trader>();
 		loggedInTraders = new TreeSet<Trader>();
 	}
@@ -88,11 +94,11 @@ public class Brokerage implements Login {
 	}
 
 	public void getQuote(String symbol, Trader trader) {
-		// TODO inlude receiveMessage for trader
+		trader.receiveMessage(exchange.getQuote(symbol));
 	}
 
 	public void placeOrder(TradeOrder order) {
-		// TODO
+		exchange.placeOrder(order);
 	}
 
 }
