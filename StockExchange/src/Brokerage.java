@@ -18,11 +18,13 @@ public class Brokerage implements Login {
 	private StockExchange exchange;
 
 	public Brokerage() {
+		exchange = new StockExchange();
 		registeredTrader = new TreeMap<String, Trader>();
 		loggedInTraders = new TreeSet<Trader>();
 	}
 
 	public Brokerage(StockExchange e) {
+		exchange = e;
 		registeredTrader = new TreeMap<String, Trader>();
 		loggedInTraders = new TreeSet<Trader>();
 	}
@@ -74,8 +76,9 @@ public class Brokerage implements Login {
 		if (!storedPassword.equals(password))
 			return -2;
 		else {
-			loggedInTraders.add(t);
 			t.openWindow();
+			loggedInTraders.add(t);
+			if(!t.hasMessages())
 			t.receiveMessage("Welcome to Safe Trade");
 			return 0;
 		}

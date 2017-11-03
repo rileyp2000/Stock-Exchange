@@ -17,9 +17,9 @@ public class SafeTrade
 
     Brokerage safeTrade = new Brokerage(exchange);
     safeTrade.addUser("stockman", "sesame");
-    safeTrade.login("stockman", "sesame");
+    //safeTrade.login("stockman", "sesame");
     safeTrade.addUser("mstrade", "bigsecret");
-    safeTrade.login("mstrade", "bigsecret");
+    //safeTrade.login("mstrade", "bigsecret");
 
     LoginWindow window = new LoginWindow("Safe Trade", safeTrade);
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

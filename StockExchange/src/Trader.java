@@ -10,6 +10,7 @@ public class Trader implements Comparable<Trader> {
 		brokerage = b;
 		username = un;
 		password = pwd;
+		mailbox = new ArrayList<String>();
 	}
 
 	/**
@@ -25,7 +26,13 @@ public class Trader implements Comparable<Trader> {
 	public String getPassword() {
 		return password;
 	}
-
+	
+	/**
+	 * 
+	 * @return if has any messages
+	 *
+	 *boolean
+	 */
 	public boolean hasMessages() {
 		return mailbox.size() != 0;
 
@@ -39,7 +46,7 @@ public class Trader implements Comparable<Trader> {
 	 */
 	public void openWindow() {
 		myWindow = new TraderWindow(this);
-		for (int i = mailbox.size(); i >= 0; i--)
+		for (int i = mailbox.size()-1; i >= 0; i--)
 			myWindow.showMessage(mailbox.remove(i));
 	}
 	
@@ -56,7 +63,7 @@ public class Trader implements Comparable<Trader> {
 	public void receiveMessage(String msg) {
 		mailbox.add(msg);
 		if (myWindow != null) {
-			for (int i = mailbox.size(); i >= 0; i--)
+			for (int i = mailbox.size()-1; i >= 0; i--)
 				myWindow.showMessage(mailbox.remove(i));
 		}
 	}
