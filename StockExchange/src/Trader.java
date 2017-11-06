@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 /**
  * 
  * @author rileyp
@@ -7,14 +9,14 @@ import java.util.ArrayList;
 public class Trader implements Comparable<Trader> {
 	private Brokerage brokerage;
 	private String username, password;
-	private ArrayList<String> mailbox;
+	private Queue<String> mailbox;
 	private TraderWindow myWindow;
 
 	public Trader(Brokerage b, String un, String pwd) {
 		brokerage = b;
 		username = un;
 		password = pwd;
-		mailbox = new ArrayList<String>();
+		mailbox = new LinkedList<String>();
 	}
 
 	/**
@@ -51,7 +53,7 @@ public class Trader implements Comparable<Trader> {
 	public void openWindow() {
 		myWindow = new TraderWindow(this);
 		for (int i = mailbox.size()-1; i >= 0; i--)
-			myWindow.showMessage(mailbox.remove(i));
+			myWindow.showMessage(mailbox.remove());
 	}
 	
 	
@@ -68,7 +70,7 @@ public class Trader implements Comparable<Trader> {
 		mailbox.add(msg);
 		if (myWindow != null) {
 			for (int i = mailbox.size()-1; i >= 0; i--)
-				myWindow.showMessage(mailbox.remove(i));
+				myWindow.showMessage(mailbox.remove());
 		}
 	}
 	

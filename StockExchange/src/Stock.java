@@ -33,17 +33,17 @@ public class Stock implements Comparable<Stock> {
 	public String getQuote() {
 		String qt = name + " (" + symbol + ")\n" + "Price: " + lastPrice + "\t" + "hi: "
 				+ highPrice+ "\t" + "low: " + lowPrice + "\t" + "vol: " + dayVolume + "\n";
-		qt += "Ask: ";
+		qt += " Ask: ";
 		if (!buyOrders.isEmpty()) {
 			qt += buyOrders.peek().getPrice();
 			qt += " size: " + buyOrders.peek().getShares();
 		} else
 			qt += "none ";
 
-		qt += "Bid: ";
+		qt += " Bid: ";
 		if (!sellOrders.isEmpty()) {
 			qt += sellOrders.peek().getPrice();
-			qt += "size: " + sellOrders.peek().getShares();
+			qt += " size: " + sellOrders.peek().getShares();
 		} else
 			qt += "none ";
 		return qt;
