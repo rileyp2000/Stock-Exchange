@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ * 
+ * @author rileyp
+ *
+ */
 public class Trader implements Comparable<Trader> {
 	private Brokerage brokerage;
 	private String username, password;
@@ -67,15 +71,33 @@ public class Trader implements Comparable<Trader> {
 				myWindow.showMessage(mailbox.remove(i));
 		}
 	}
-
+	
+	/**
+	 * 
+	 * @param symbol gets a quote for a symbol
+	 *
+	 *void
+	 */
 	public void getQuote(String symbol) {
 		brokerage.getQuote(symbol, this);
 	}
 	
+	/**
+	 * logs out a user
+	 * 
+	 *
+	 *void
+	 */
 	public void quit() {
 		brokerage.logout(this);
 	}
 	
+	/**
+	 * places an order
+	 * @param order order to be placed
+	 *
+	 *void
+	 */
 	public void placeOrder(TradeOrder order) {
 		brokerage.placeOrder(order);
 	}
