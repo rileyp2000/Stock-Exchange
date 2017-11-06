@@ -99,7 +99,14 @@ public class Brokerage implements Login {
 		if (loggedInTraders.contains(t))
 			loggedInTraders.remove(t);
 	}
-
+	
+	/**
+	 * 
+	 * @param symbol what stock to get a quote for
+	 * @param trader what trader the symbol quote is taken from
+	 *
+	 *void
+	 */
 	public void getQuote(String symbol, Trader trader) {
 		trader.receiveMessage(exchange.getQuote(symbol));
 	}
